@@ -10,6 +10,11 @@ import java.util.List;
 
 import tools.core.model.TableColumnDesc;
 
+/**
+ * 
+ * @author zhuss
+ *
+ */
 public class MySQLConnect {
 	
 	public static Connection con;
