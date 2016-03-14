@@ -2,7 +2,7 @@ package ${ modelClassDesc.packgeName }.dao.impl;
 
 import com.web.core.model.User;
 
-public class ${modelClassDesc.className}DaoImpl extends BaseGenericDao<${modelClassDesc.className}, Long> {
+public class ${modelClassDesc.className}DaoImpl<${modelClassDesc.className},Long> extends BaseGenericDao<${modelClassDesc.className}, Long> {
 
 	@Override
 	public Class getEntityClass() {
