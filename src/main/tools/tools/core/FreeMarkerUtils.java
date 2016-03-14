@@ -72,6 +72,19 @@ public class FreeMarkerUtils {
 		outMapper(filePath,root, mapperName);
 	}
 	
+	
+	public static void outDao(ModelClassDesc modelClassDesc) throws IOException, TemplateException{
+		String mapperName  = "dao.ftl";
+		String srcPath = FreeMarkerUtils.class.getResource("/").getPath().split("bin")[0]+"src/";
+		String packagePath = srcPath + modelClassDesc.getPackgeName().replace(".", "/")+"/dao/";
+		System.out.println("packagePath:"+packagePath);
+		String filePath = packagePath + modelClassDesc.getClassName()+"Dao.java";
+		Map<String,Object> root = new HashMap<String, Object>();
+		root.put("modelClassDesc", modelClassDesc);
+		outMapper(filePath,root,mapperName);
+		
+	}
+	
 	public static void outMapper(String filePath,Map<String, Object> root , String tempName) throws IOException, TemplateException{
 		Template temp = config.getTemplate(tempName);
 		File outFile = new File(filePath);
