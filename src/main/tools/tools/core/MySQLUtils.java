@@ -17,6 +17,7 @@ public class MySQLUtils {
 
 	static {
 		map.put("int", "int");
+		map.put("smallint", "int");
 		map.put("tinny", "int");
 		map.put("tinyint", "int");
 		map.put("bigint", "long");
@@ -28,6 +29,7 @@ public class MySQLUtils {
 		map.put("decimal", "double"); // DECIMAL
 		map.put("text", "String");
 		map.put("datetime", "Date");
+		map.put("timestamp", "Date");
 		map.put("longtext", "String");
 	}
 
