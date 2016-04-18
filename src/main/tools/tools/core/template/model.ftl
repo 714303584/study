@@ -1,4 +1,4 @@
-package ${ modelClassDesc.packgeName }.model;
+package ${ modelClassDesc.packgeName }.entity;
 
 import java.io.Serializable;
 import java.util.*;
