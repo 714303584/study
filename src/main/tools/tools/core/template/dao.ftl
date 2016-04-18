@@ -1,12 +1,21 @@
-package ${ modelClassDesc.packgeName }.dao.impl;
+package ${ modelClassDesc.packgeName }.dao;
 
-import com.web.core.model.User;
+import com.blog.entity.${modelClassDesc.className};
+import java.util.List;
+import java.util.Map;
 
-public class ${modelClassDesc.className}DaoImpl<${modelClassDesc.className},Long> extends BaseGenericDao<${modelClassDesc.className}, Long> {
 
-	@Override
-	public Class getEntityClass() {
-		return ${modelClassDesc.className}DaoImpl.class;
-	}
+public interface ${modelClassDesc.className}DaoImpl {
+	
+	public ${modelClassDesc.className} getById(long id);
+	
+	public void save(${modelClassDesc.className} entity);
+	
+	public List<${modelClassDesc.className}> findListBy(Map<String, Object> map);
+	
+	public void deleteByIds(long[] ids);
+	
+	public void update(${modelClassDesc.className} entity);
 
 }
+	
