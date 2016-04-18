@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${modelClassDesc.packgeName}.dao.${modelClassDesc.className}DaoImpl">
-	<resultMap id="gGoodsResultMap" type="${modelClassDesc.className}">
+	<resultMap id="m${modelClassDesc.className}" type="${modelClassDesc.className}">
 		<#list modelClassDesc.fileds as filed> 
 			<result column="${filed.tableFiledName}" property="${filed.filedName}" />
 		</#list> 
@@ -38,7 +38,7 @@
 		</where>
 	</sql>
 
-	<select id="findPageBy" parameterType="java.util.Map" resultMap="gGoodsResultMap">
+	<select id="findPageBy" parameterType="java.util.Map" resultMap="m${modelClassDesc.className}">
  		<include refid="mainSql"/>
  		<include refid="varSql"/>
 		<if test="@Ognl@isNotEmpty(sortColumns)">
@@ -49,7 +49,7 @@
 		</if>
 	</select>
 
-	<select id="getById" parameterType="String" resultMap="gGoodsResultMap">
+	<select id="getById" parameterType="String" resultMap="m${modelClassDesc.className}">
 		<include refid="mainSql"/>
 		where <include refid="conditionOnlyId"/>
 	</select>
@@ -62,7 +62,7 @@
 		<include refid="varSql"/>
 	</select>
 
-	<select id="findListBy" parameterType="java.util.Map" resultMap="gGoodsResultMap">
+	<select id="findListBy" parameterType="java.util.Map" resultMap="m${modelClassDesc.className}">
 		<include refid="mainSql"/>
 		<include refid="varSql"/>
 	</select>
