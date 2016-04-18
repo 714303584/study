@@ -20,9 +20,9 @@ public class StartUp {
 	public static void main(String[] args) {
 		try {
 			List<String> list = MySQLConnect.getAllTables("show tables",
-					"shoop");
+					"blog");
 
-			String packeName = "com.web.core";
+			String packeName = "com.blog";
 
 			Iterator<String> it = list.iterator();
 			List<ModelClassDesc> mcds = new ArrayList<ModelClassDesc>();
@@ -32,12 +32,14 @@ public class StartUp {
 				td.setTableName(tableName);
 				td.setTable(MySQLConnect.getColumns("DESC " + tableName));
 				ModelClassDesc mcd = MySQLUtils.tableParseToMode(td);
+				System.err.println(mcd.getTableName());
 				mcd.setTableName(tableName);
 				mcds.add(mcd);
 				mcd.setPackgeName(packeName);
 				mcd.format();
-//				FreeMarkerUtils.outModel(mcd);
+				FreeMarkerUtils.outModel(mcd);
 				FreeMarkerUtils.outMapper(mcd);
+				FreeMarkerUtils.outDao(mcd);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
