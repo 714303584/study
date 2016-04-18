@@ -77,6 +77,10 @@ public class FreeMarkerUtils {
 		String mapperName  = "dao.ftl";
 		String srcPath = FreeMarkerUtils.class.getResource("/").getPath().split("bin")[0]+"src/";
 		String packagePath = srcPath + modelClassDesc.getPackgeName().replace(".", "/")+"/dao/";
+		File packagefile = new File(packagePath);
+		if(!packagefile.exists()){
+			packagefile.mkdir();
+		}
 		System.out.println("packagePath:"+packagePath);
 		String filePath = packagePath + modelClassDesc.getClassName()+"Dao.java";
 		Map<String,Object> root = new HashMap<String, Object>();
