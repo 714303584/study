@@ -49,7 +49,7 @@
 		</if>
 	</select>
 
-	<select id="getById" parameterType="String" resultMap="m${modelClassDesc.className}">
+	<select id="getById" parameterType="Long" resultMap="m${modelClassDesc.className}">
 		<include refid="mainSql"/>
 		where <include refid="conditionOnlyId"/>
 	</select>
