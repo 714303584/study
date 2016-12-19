@@ -136,4 +136,20 @@ public class FreeMarkerUtils {
 	public static void main(String[] args) {
 	}
 
+	public static void outController(ModelClassDesc mcd) throws IOException, TemplateException {
+		String mapperName  = "controller.ftl";
+		String srcPath = FreeMarkerUtils.class.getResource("/").getPath().split("bin")[0]+"src/";
+		String packagePath = srcPath + mcd.getPackgeName().replace(".", "/")+"/dao/";
+		File packagefile = new File(packagePath);
+		if(!packagefile.exists()){
+			packagefile.mkdir();
+		}
+		System.out.println("packagePath:"+packagePath);
+		String filePath = packagePath + mcd.getClassName()+"Controller.java";
+		Map<String,Object> root = new HashMap<String, Object>();
+		root.put("modelClassDesc", mcd);
+		outMapper(filePath,root,mapperName);
+		
+	}
+
 }

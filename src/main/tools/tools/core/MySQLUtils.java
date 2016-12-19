@@ -28,6 +28,7 @@ public class MySQLUtils {
 		map.put("double", "double");
 		map.put("decimal", "double"); // DECIMAL
 		map.put("text", "String");
+		map.put("date", "Date");
 		map.put("datetime", "Date");
 		map.put("timestamp", "Date");
 		map.put("longtext", "String");
@@ -53,6 +54,7 @@ public class MySQLUtils {
 			 String type[] = tcd.getType().split("\\(");
 			 mfd.setFiledType(map.get(type[0]));
 			 result.add(mfd);
+			 System.out.println(mfd);
 		}
 		return result;
 	}

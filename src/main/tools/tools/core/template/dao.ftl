@@ -13,9 +13,13 @@ public interface ${modelClassDesc.className}DaoImpl {
 	
 	public List<${modelClassDesc.className}> findListBy(Map<String, Object> map);
 	
+	public List<${modelClassDesc.className}> findPageBy(Map<String, Object> map);
+	
 	public void deleteByIds(long[] ids);
 	
 	public void update(${modelClassDesc.className} entity);
+	
+	public int getCountBy(Map<String, Object> map);
 
 }
 	

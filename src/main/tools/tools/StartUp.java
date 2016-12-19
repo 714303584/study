@@ -30,7 +30,7 @@ public class StartUp {
 				String tableName = it.next();
 				TableDesc td = new TableDesc();
 				td.setTableName(tableName);
-				td.setTable(MySQLConnect.getColumns("DESC " + tableName));
+				td.setTable(MySQLConnect.getColumns("DESC " + "blog."+tableName));
 				ModelClassDesc mcd = MySQLUtils.tableParseToMode(td);
 				System.err.println(mcd.getTableName());
 				mcd.setTableName(tableName);
@@ -39,7 +39,8 @@ public class StartUp {
 				mcd.format();
 				FreeMarkerUtils.outModel(mcd);
 				FreeMarkerUtils.outMapper(mcd);
-				FreeMarkerUtils.outDao(mcd);;
+				FreeMarkerUtils.outDao(mcd);
+				FreeMarkerUtils.outController(mcd);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

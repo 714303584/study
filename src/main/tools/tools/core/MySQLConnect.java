@@ -19,9 +19,9 @@ public class MySQLConnect {
 	
 	public static Connection con;
 	static {
-		String url = "jdbc:mysql://localhost:3306/shoop";
+		String url = "jdbc:mysql://localhost:3306/blog";
 		String username = "root";
-		String password = "zhushunshan";
+		String password = "zhushunshan123";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, username, password);
@@ -47,6 +47,7 @@ public class MySQLConnect {
 	public static List<TableColumnDesc> getColumns(String sql) throws SQLException{
 		List<TableColumnDesc> result = new ArrayList<TableColumnDesc>();
 		Statement stt = con.createStatement();
+		System.out.println(sql);
 		ResultSet rs =  stt.executeQuery(sql);
 		while (rs.next()) {
 			TableColumnDesc tcd = new TableColumnDesc();
@@ -57,6 +58,7 @@ public class MySQLConnect {
 			tcd.setExtra(rs.getString("EXTRA"));
 			tcd.setDefault_(rs.getString("DEFAULT"));
 			result.add(tcd);
+			System.out.println(tcd);
 		}
 		return result;
 	}
